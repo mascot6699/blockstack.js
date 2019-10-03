@@ -163,11 +163,13 @@ function makeV1GaiaAuthToken(hubInfo: any,
   }
 
   const salt = crypto.randomBytes(16).toString('hex')
+  const exp = (Date.now() / 1000) + 120,
   const payload = {
     gaiaChallenge: challengeText,
     hubUrl,
     iss,
     salt,
+    exp,
     associationToken
   }
   const token = new TokenSigner('ES256K', signerKeyHex).sign(payload)
