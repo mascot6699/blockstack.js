@@ -163,7 +163,7 @@ function makeV1GaiaAuthToken(hubInfo: any,
   }
 
   const salt = crypto.randomBytes(16).toString('hex')
-  const exp = (Date.now() / 1000) + 120,
+  const exp = (Date.now() / 1000) + 120
   const payload = {
     gaiaChallenge: challengeText,
     hubUrl,
